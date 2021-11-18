@@ -1,0 +1,11 @@
+knns_params = {'clf__n_neighbors': list(range(1, 31)), 'clf__weights': ['uniform', 'distance'], 
+               'clf__metric': ['euclidean', 'manhattan']}
+knns_clf = KNeighborsClassifier()
+knns_model = fit(knns_clf, knns_params)
+
+
+discrette_feature = [i for i in data.columns if data[i].nunique() < 10]
+continuous_feature = [i for i in data.columns if data[i].nunique() > 10]
+print(f'discrette feature: {discrette_feature}')
+print(f'continuous feature: {continuous_feature}')
+
